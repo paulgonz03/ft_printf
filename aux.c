@@ -30,7 +30,7 @@ int ft_printnbr(int nb)
     int i;
 
     i = 0;
-	if (nb == -2147483649)
+	if(nb == -2147483648)
 	{
 		write(1, "-2147483648", 11);
 		return(11);
@@ -57,12 +57,6 @@ int ft_printunbr(unsigned int nb)
     int i;
 
     i = 0;
-	if (nb < 0)
-	{
-		nb = nb * (-1);
-		write (1, "-", 1);
-        i++;
-	}
 	if (nb > 9)
     {
 		ft_printnbr (nb / 10);
@@ -84,7 +78,12 @@ int ft_printhex(unsigned long const nb, char c)
         s = "0123456789ABCDEF";
     if (c == 'p')
     {
-        counter = ft_printchar("0x");
+        if (!nb)
+        {
+            write(1,"(nil)",5);  
+            return (counter);
+        }
+        counter = ft_printstr("0x");
         c = 'x';
     }
 	if (nb < 16)
@@ -92,12 +91,4 @@ int ft_printhex(unsigned long const nb, char c)
 	counter = ft_printhex(nb / 16, c);
 	counter += ft_printhex(nb % 16, c);
 	return (counter);
-}
-
-
-
-int main()
-{
-    int nb = 999;
-    ft_printhex(nb, 'x');
 }
