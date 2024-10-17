@@ -39,33 +39,3 @@ int ft_printf(char const *p, ...)
     va_end(args);
     return(counter);
 }
-
-int main()
-{
-    char *paula = '\0';
-
-    printf("%s\n", "");
-    ft_printf ("%s", "");
-    write(1,"\n",1);
-    printf("%c\n", 'i');
-    ft_printf ("%c", 'i');
-    write(1,"\n",1);
-    printf("%d\n", -6284);
-    ft_printf ("%d", -6284);
-    write(1,"\n",1);
-    printf("%i\n", -6284);
-    ft_printf ("%i", -6284);
-    write(1,"\n",1);
-    printf("%u\n", 248);
-    ft_printf ("%u", 248);
-    write(1,"\n",1);
-    printf("%x\n", 7235);
-    ft_printf ("%x", 7235);
-    write(1,"\n",1);
-    printf("%p\n", paula);
-    ft_printf ("%p", paula);
-    write(1,"\n",1);
-    printf("%%\n");
-    ft_printf ("%%");
-    
-}
